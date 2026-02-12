@@ -1,0 +1,24 @@
+{
+  "name": "Saba Graphics - Professional Design Services",
+  "short_name": "Saba Graphics",
+  "description": "Professional Calligraphy, Laser Cut Design, and Graphic Design Services in Delhi by Umar Noor",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3E2723",
+  "theme_color": "#D4AF37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

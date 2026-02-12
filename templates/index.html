@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Saba Graphics - Professional Calligraphy, Laser Cut Design, and Graphic Design Services in Delhi. Owned by Umar Noor.">
+    <meta name="keywords"
+        content="Saba Graphics, Calligraphy, Laser Cut, Wedding Cards, Graphic Design, Delhi, Umar Noor">
+    <title>Saba Graphics | Professional Design Services</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#D4AF37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Saba Graphics">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Saba Graphics Logo" class="logo-img">
+            <span>Saba Graphics</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="cta-btn" onclick="openQuoteModal()">Get a Quote</button></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="animate-text">Artistry in Every Stroke</h1>
+            <p class="animate-text delay-1">Premium Calligraphy & Graphic Design by Umar Noor</p>
+            <div class="hero-btns animate-text delay-2">
+                <a href="#services" class="btn primary">Explore Services</a>
+                <a href="#contact" class="btn secondary">Contact Us</a>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to <strong>Saba Graphics</strong>. With over 8 years of dedicated experience, we
+                        specialize in transforming ideas into visual masterpieces. Located in the heart of Delhi, we
+                        blend traditional artistry with modern technology.</p>
+                    <p>Under the expert guidance of <strong>Umar Noor</strong>, we deliver excellence in everything from
+                        intricate laser cuts to elegant wedding invitations.</p>
+                </div>
+                <div class="about-stat">
+                    <div class="stat-item">
+                        <h3>8+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100+</h3>
+                        <p>Projects Done</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-pen-nib"></i>
+                    <h3>Calligraphy</h3>
+                    <p>Exquisite Delhi Nastaleeq and modern calligraphy for all occasions.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Diamond/Rhinestone Design</h3>
+                    <p>Specialized Swarovski and Zarkand designs for ladies' suits and shoes.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>Laser Cut Design</h3>
+                    <p>Precision laser cutting for intricate patterns and custom artifacts.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h3>Wedding & Business Cards</h3>
+                    <p>Premium card designs that make a lasting impression.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Packaging Design</h3>
+                    <p>Creative packaging solutions that elevate your brand value.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-vector-square"></i>
+                    <h3>Vector Art</h3>
+                    <p>High-quality image to vector conversion services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Work</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Placeholders for portfolio images -->
+                <div class="portfolio-item">
+                    <div class="placeholder-img" style="background: #d4af37;">Calligraphy Art</div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="placeholder-img" style="background: #3e2723;">Laser Cut Pattern</div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="placeholder-img" style="background: #d4af37;">Wedding Card</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p><em>Check out our Instagram for more!</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-dark">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Let's create something amazing together.</p>
+                    <ul class="info-list">
+                        <li><i class="fas fa-phone-alt"></i> +91-8178862197</li>
+                        <li><i class="fas fa-envelope"></i> saba.graphics4@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 4362, Shah Ganj, Ajmeri Gate, Delhi-110006</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/sabagraphics4/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100094658342432" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://in.pinterest.com/8178862197noor/" target="_blank"><i
+                                class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <!-- Business Card Addition -->
+                <div class="contact-card-display">
+                    <img src="{{ url_for('static', filename='images/card.png') }}" alt="Saba Graphics Business Card"
+                        class="business-card-img">
+                </div>
+                <div class="contact-form">
+                    <form id="leadForm" action="/contact" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="phone" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="5" placeholder="Tell us about your project"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary full-width">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Saba Graphics. All Rights Reserved. | Designed by Umar Noor</p>
+        </div>
+    </footer>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Request a Quote</h2>
+            <form id="quoteForm">
+                <select name="service" required>
+                    <option value="" disabled selected>Select Service</option>
+                    <option value="calligraphy">Calligraphy</option>
+                    <option value="rhinestone">Rhinestone Design</option>
+                    <option value="laser">Laser Cut</option>
+                    <option value="print">Printing/Cards</option>
+                </select>
+                <textarea placeholder="Describe your requirements details..." rows="4"></textarea>
+                <button type="submit" class="btn primary">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- C++ Demo Section (Hidden or subtle) -->
+    <div style="display:none;" id="cpp-demo">
+        <!-- This is just to demonstrate the C++ feature functionality -->
+        <button id="cppBtn">Test System Performance</button>
+        <span id="cppOutput"></span>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918178862197?text=Hello%20Saba%20Graphics!%20I%20would%20like%20to%20inquire%20about%20your%20services."
+        class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Floating QR Code Button -->
+    <button class="qr-float" onclick="toggleQRModal()" aria-label="Show Website QR Code">
+        <i class="fas fa-qrcode"></i>
+    </button>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content qr-modal-content">
+            <span class="close-modal" onclick="toggleQRModal()">&times;</span>
+            <h2 style="margin-bottom: 20px;">Scan to Visit</h2>
+            <div id="qrcode"></div>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">Scan this code to open saba graphics on your
+                phone</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
