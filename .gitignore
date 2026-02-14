@@ -15,3 +15,6 @@ build/
 *.swp
 *.swo
 .DS_Store
+
+# C++ executable (Linux/Mac)
+cpp_module/processor

@@ -1,0 +1,6 @@
+@echo off
+echo Starting Saba Graphics Server...
+echo Opening http://localhost:5000/ in your default browser...
+start http://localhost:5000/
+python app.py
+pause

@@ -14,6 +14,8 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- PWA Configuration -->
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
     <meta name="theme-color" content="#D4AF37">
@@ -26,6 +28,13 @@
 </head>
 
 <body>
+
+    <!-- Background Animation Container -->
+    <div class="background-animation">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -60,7 +69,7 @@
 
     <!-- About Section -->
     <section id="about" class="section">
-        <div class="container">
+        <div class="container" data-aos="fade-up">
             <div class="section-title">
                 <h2>About Us</h2>
                 <div class="underline"></div>
@@ -99,32 +108,32 @@
                 <div class="underline"></div>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" data-aos="flip-left" data-aos-delay="100">
                     <i class="fas fa-pen-nib"></i>
                     <h3>Calligraphy</h3>
                     <p>Exquisite Delhi Nastaleeq and modern calligraphy for all occasions.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="flip-left" data-aos-delay="200">
                     <i class="fas fa-gem"></i>
                     <h3>Diamond/Rhinestone Design</h3>
                     <p>Specialized Swarovski and Zarkand designs for ladies' suits and shoes.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="flip-left" data-aos-delay="300">
                     <i class="fas fa-magic"></i>
                     <h3>Laser Cut Design</h3>
                     <p>Precision laser cutting for intricate patterns and custom artifacts.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="flip-left" data-aos-delay="400">
                     <i class="fas fa-envelope-open-text"></i>
                     <h3>Wedding & Business Cards</h3>
                     <p>Premium card designs that make a lasting impression.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="flip-left" data-aos-delay="500">
                     <i class="fas fa-box-open"></i>
                     <h3>Packaging Design</h3>
                     <p>Creative packaging solutions that elevate your brand value.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="flip-left" data-aos-delay="600">
                     <i class="fas fa-vector-square"></i>
                     <h3>Vector Art</h3>
                     <p>High-quality image to vector conversion services.</p>
@@ -142,13 +151,13 @@
             </div>
             <div class="portfolio-grid">
                 <!-- Placeholders for portfolio images -->
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="100">
                     <div class="placeholder-img" style="background: #d4af37;">Calligraphy Art</div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200">
                     <div class="placeholder-img" style="background: #3e2723;">Laser Cut Pattern</div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="300">
                     <div class="placeholder-img" style="background: #d4af37;">Wedding Card</div>
                 </div>
             </div>
@@ -160,7 +169,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="section bg-dark">
-        <div class="container">
+        <div class="container" data-aos="fade-up">
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <h2>Get In Touch</h2>
@@ -261,6 +270,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 

@@ -20,9 +20,19 @@ def contact():
 @app.route('/process_data', methods=['POST'])
 def process_data():
     try:
+        # Determine the executable path based on OS
+        if os.name == 'nt':  # Windows
+            executable_path = './cpp_module/processor.exe'
+        else:  # Linux/Unix (Render)
+            executable_path = './cpp_module/processor'
+
+        # Check if executable exists
+        if not os.path.exists(executable_path):
+             return jsonify({"status": "error", "message": f"Executable not found at {executable_path}"})
+
         # Example of calling the C++ executable
-        # Ensure the cpp_module/processor.exe exists and is compiled
-        result = subprocess.check_output(['./cpp_module/processor.exe', 'test_input'], text=True)
+        # Ensure the cpp_module/processor.exe (or processor) exists and is compiled
+        result = subprocess.check_output([executable_path, 'test_input'], text=True)
         return jsonify({"status": "success", "cpp_output": result.strip()})
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)})
