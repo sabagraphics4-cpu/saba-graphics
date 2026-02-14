@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const qrContainer = document.getElementById("qrcode");
         if (qrContainer.innerHTML === "") {
             // Use network IP so scanning from phone works
-            const networkUrl = "http://192.168.1.15:5000";
+            const networkUrl = "https://saba-graphics.onrender.com";
             new QRCode(qrContainer, {
                 text: networkUrl,
                 width: 200,
