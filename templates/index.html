@@ -150,15 +150,27 @@
                 <div class="underline"></div>
             </div>
             <div class="portfolio-grid">
-                <!-- Placeholders for portfolio images -->
+                <!-- Portfolio Items -->
                 <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="placeholder-img" style="background: #d4af37;">Calligraphy Art</div>
+                    <img src="{{ url_for('static', filename='images/portfolio/placeholder.png') }}"
+                        alt="Calligraphy Art" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Calligraphy Art</h3>
+                    </div>
                 </div>
                 <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="placeholder-img" style="background: #3e2723;">Laser Cut Pattern</div>
+                    <img src="{{ url_for('static', filename='images/portfolio/placeholder.png') }}"
+                        alt="Laser Cut Pattern" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Laser Cut Pattern</h3>
+                    </div>
                 </div>
                 <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="placeholder-img" style="background: #d4af37;">Wedding Card</div>
+                    <img src="{{ url_for('static', filename='images/portfolio/placeholder.png') }}" alt="Wedding Card"
+                        class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Wedding Card</h3>
+                    </div>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
