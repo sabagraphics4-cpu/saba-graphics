@@ -80,31 +80,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Form Submissions
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
+    // Form Submissions
+    const handleFormSubmit = async (formId, endpoint) => {
+        const form = document.getElementById(formId);
+        if (!form) return;
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(form);
-
-            // Here you would normally send data to server
-            // For now, we simulate a success message
-
             const btn = form.querySelector('button');
             const originalText = btn.innerText;
-            btn.innerText = "Sending...";
 
-            setTimeout(() => {
-                btn.innerText = "Sent Successfully!";
-                btn.style.background = "#4CAF50";
-                form.reset();
-                setTimeout(() => {
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    btn.innerText = "Sent Successfully!";
+                    btn.style.background = "#4CAF50";
+                    form.reset();
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.background = "";
+                        btn.disabled = false;
+                        if (formId === 'quoteForm' && modal.style.display === "block") {
+                            modal.style.display = "none";
+                        }
+                    }, 2000);
+                } else {
+                    alert('Error: ' + result.message);
                     btn.innerText = originalText;
-                    btn.style.background = "";
-                    if (modal.style.display === "block") modal.style.display = "none";
-                }, 2000);
-            }, 1000);
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
         });
-    });
+    };
+
+    handleFormSubmit('leadForm', '/contact');
+    handleFormSubmit('quoteForm', '/quote');
 
     // C++ Integration Test (Keyboard shortcut 'Ctrl+Shift+Z' to trigger or console usage)
     console.log("Saba Graphics System Ready. C++ Integration standing by.");
