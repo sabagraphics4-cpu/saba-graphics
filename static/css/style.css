@@ -448,6 +448,212 @@ a {
     transform: translateY(0);
 }
 
+/* Portfolio Card Wrapper */
+.portfolio-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.15);
+    transform: translateY(-5px);
+}
+
+.portfolio-card .portfolio-item {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Interaction Bar */
+.interaction-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.6rem 1rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-icon:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--primary-color);
+    transform: scale(1.15);
+}
+
+.btn-icon.active-like {
+    color: #e74c3c;
+    animation: popIn 0.3s ease;
+}
+
+.btn-icon.active-like i {
+    font-weight: 900;
+}
+
+.btn-icon.active-dislike {
+    color: #3498db;
+    animation: popIn 0.3s ease;
+}
+
+.btn-icon.active-dislike i {
+    font-weight: 900;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.share-btn:hover {
+    color: #2ecc71;
+}
+
+/* Comments Section */
+.comments-section {
+    border-top: 1px solid var(--glass-border);
+    padding: 0.75rem 1rem;
+    animation: slideOpen 0.3s ease;
+}
+
+@keyframes slideOpen {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        max-height: 300px;
+    }
+}
+
+.comments-list {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.comments-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.no-comments {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    font-style: italic;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.comment-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    animation: fadeInUp 0.3s ease;
+}
+
+.comment-item .comment-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.comment-item .comment-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.comment-input-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.comment-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.comment-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.comment-input:focus {
+    border-color: var(--primary-color);
+}
+
+.btn-send-comment {
+    background: var(--primary-color);
+    border: none;
+    color: var(--secondary-color);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.btn-send-comment:hover {
+    background: #b3922d;
+    transform: scale(1.1);
+}
+
 /* Contact */
 .contact-wrapper {
     display: flex;

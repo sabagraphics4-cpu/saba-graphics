@@ -63,7 +63,13 @@ def index():
     portfolio_dir = os.path.join('static', 'images', 'portfolio')
     images = []
     if os.path.exists(portfolio_dir):
-        images = [f for f in os.listdir(portfolio_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif'))]
+        for root, dirs, files in os.walk(portfolio_dir):
+            for file in files:
+                if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                    # Get relative path from portfolio_dir
+                    rel_path = os.path.relpath(os.path.join(root, file), portfolio_dir)
+                    # Use forward slashes for web URLs regardless of OS
+                    images.append(rel_path.replace('\\', '/'))
     return render_template('index.html', portfolio_images=images)
 
 # Route for handling contact form submissions

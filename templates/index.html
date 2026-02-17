@@ -155,11 +155,35 @@
                 <!-- Portfolio Items -->
                 <!-- Portfolio Items -->
                 {% for image in portfolio_images %}
-                <div class="portfolio-item" data-aos="zoom-in">
-                    <img src="{{ url_for('static', filename='images/portfolio/' + image) }}" alt="Portfolio Item"
-                        class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Saba Graphics</h3>
+                <div class="portfolio-card" data-aos="zoom-in">
+                    <div class="portfolio-item">
+                        <img src="{{ url_for('static', filename='images/portfolio/' + image) }}" alt="Portfolio Item"
+                            class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Saba Graphics</h3>
+                        </div>
+                    </div>
+                    <div class="interaction-bar">
+                        <button class="btn-icon like-btn" onclick="toggleLike(this)"><i
+                                class="far fa-heart"></i></button>
+                        <button class="btn-icon dislike-btn" onclick="toggleDislike(this)"><i
+                                class="far fa-thumbs-down"></i></button>
+                        <button class="btn-icon comment-btn" onclick="toggleComments(this)"><i
+                                class="far fa-comment"></i></button>
+                        <button class="btn-icon share-btn"
+                            onclick="shareImage('{{ url_for('static', filename='images/portfolio/' + image, _external=True) }}')"><i
+                                class="fas fa-share-alt"></i></button>
+                    </div>
+                    <div class="comments-section" style="display: none;">
+                        <div class="comments-list">
+                            <!-- key is filename -->
+                            <p class="no-comments">No comments yet.</p>
+                        </div>
+                        <div class="comment-input-wrapper">
+                            <input type="text" class="comment-input" placeholder="Add a comment...">
+                            <button class="btn-send-comment" onclick="postComment(this)"><i
+                                    class="fas fa-paper-plane"></i></button>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}

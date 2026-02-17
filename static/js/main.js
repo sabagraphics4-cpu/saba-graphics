@@ -176,11 +176,111 @@ document.addEventListener('DOMContentLoaded', () => {
     handleFormSubmit('leadForm', '/contact');
     handleFormSubmit('quoteForm', '/quote');
 
-    // C++ Integration Test (Keyboard shortcut 'Ctrl+Shift+Z' to trigger or console usage)
-    console.log("Saba Graphics System Ready. C++ Integration standing by.");
+    // ===== Portfolio Interaction Functions =====
 
-    // Example: Trigger C++ processing via fetch
-    // fetch('/process_data', { method: 'POST' })
-    //     .then(res => res.json())
-    //     .then(data => console.log(data));
+    // Like Toggle
+    window.toggleLike = function (btn) {
+        const card = btn.closest('.portfolio-card');
+        const dislikeBtn = card.querySelector('.dislike-btn');
+
+        // Remove dislike if active
+        if (dislikeBtn.classList.contains('active-dislike')) {
+            dislikeBtn.classList.remove('active-dislike');
+            dislikeBtn.querySelector('i').classList.replace('fas', 'far');
+        }
+
+        btn.classList.toggle('active-like');
+        const icon = btn.querySelector('i');
+        if (btn.classList.contains('active-like')) {
+            icon.classList.replace('far', 'fas');
+        } else {
+            icon.classList.replace('fas', 'far');
+        }
+    };
+
+    // Dislike Toggle
+    window.toggleDislike = function (btn) {
+        const card = btn.closest('.portfolio-card');
+        const likeBtn = card.querySelector('.like-btn');
+
+        // Remove like if active
+        if (likeBtn.classList.contains('active-like')) {
+            likeBtn.classList.remove('active-like');
+            likeBtn.querySelector('i').classList.replace('fas', 'far');
+        }
+
+        btn.classList.toggle('active-dislike');
+        const icon = btn.querySelector('i');
+        if (btn.classList.contains('active-dislike')) {
+            icon.classList.replace('far', 'fas');
+        } else {
+            icon.classList.replace('fas', 'far');
+        }
+    };
+
+    // Toggle Comments Section
+    window.toggleComments = function (btn) {
+        const card = btn.closest('.portfolio-card');
+        const section = card.querySelector('.comments-section');
+        if (section.style.display === 'none' || !section.style.display) {
+            section.style.display = 'block';
+        } else {
+            section.style.display = 'none';
+        }
+    };
+
+    // Post a Comment
+    window.postComment = function (btn) {
+        const wrapper = btn.closest('.comment-input-wrapper');
+        const input = wrapper.querySelector('.comment-input');
+        const text = input.value.trim();
+        if (!text) return;
+
+        const commentsList = btn.closest('.comments-section').querySelector('.comments-list');
+        const noComments = commentsList.querySelector('.no-comments');
+        if (noComments) noComments.remove();
+
+        const commentEl = document.createElement('div');
+        commentEl.className = 'comment-item';
+        commentEl.innerHTML = `
+            <div class="comment-avatar"><i class="fas fa-user" style="font-size: 0.6rem;"></i></div>
+            <span class="comment-text">${text}</span>
+        `;
+        commentsList.appendChild(commentEl);
+        commentsList.scrollTop = commentsList.scrollHeight;
+        input.value = '';
+    };
+
+    // Allow Enter key to submit comments
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && e.target.classList.contains('comment-input')) {
+            const sendBtn = e.target.closest('.comment-input-wrapper').querySelector('.btn-send-comment');
+            if (sendBtn) sendBtn.click();
+        }
+    });
+
+    // Share an Image
+    window.shareImage = function (imageUrl) {
+        const shareData = {
+            title: 'Saba Graphics - Portfolio',
+            text: 'Check out this design from Saba Graphics!',
+            url: imageUrl
+        };
+
+        if (navigator.share) {
+            navigator.share(shareData).catch(() => { });
+        } else {
+            // Fallback: copy link to clipboard
+            navigator.clipboard.writeText(imageUrl).then(() => {
+                // Show a quick toast
+                const toast = document.createElement('div');
+                toast.textContent = '🔗 Link copied!';
+                toast.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#D4AF37;color:#3E2723;padding:10px 24px;border-radius:25px;font-weight:600;z-index:9999;animation:fadeInUp 0.3s ease;';
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            }).catch(() => {
+                alert('Copy this link: ' + imageUrl);
+            });
+        }
+    };
 });
